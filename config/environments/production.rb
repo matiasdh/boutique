@@ -60,9 +60,9 @@ Boutique::Application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   config.assets.precompile += %w( *.js *.coffee *.ttf *.eot *.svg )
-  config.assets.precompile += %w( active_admin.css.scss bootstrap-responsive.min.css nivo-slider.css )
-  config.assets.precompile += %w( anythingslider.css home.css.scss style.css application.css.scss )
-  config.assets.precompile += %w( lightbox.css bootstrap.min.css messages.css.scss )
+  config.assets.precompile += %w( stylesheets/active_admin.css.scss stylesheets/bootstrap-responsive.min.css stylesheets/nivo-slider.css )
+  config.assets.precompile += %w( stylesheets/anythingslider.css stylesheets/home.css.scss stylesheets/style.css stylesheets/application.css.scss )
+  config.assets.precompile += %w( stylesheets/lightbox.css stylesheets/bootstrap.min.css stylesheets/messages.css.scss )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
