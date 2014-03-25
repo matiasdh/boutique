@@ -59,7 +59,7 @@ Boutique::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( *.js *.scss *.coffee *.css )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -67,13 +67,13 @@ Boutique::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'mail.outiquedecarnes.com.uy',
+    address:              'mail.boutiquedecarnes.com.uy',
     port:                 25,
-    domain:               'example.com',
+    domain:               'boutiquedecarnes.com.uy',
     user_name:            'info@boutiquedecarnes.com.uy',
     password:             'boutique2014',
     authentication:       'plain',
-    enable_starttls_auto: true  }
+    enable_starttls_auto: false  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
