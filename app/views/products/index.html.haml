@@ -16,7 +16,6 @@
                 .cn2
                   %span.tx1= product.name
                   %span.tx2= product.sanitized_price
-                  %p= product.description
                   =link_to('comprar','', "data-target"=>"#myModal", "data-remote"=>new_cart_product_path(cart_product: {product_id: product.id}),"role"=>"button", "class"=>"btn btn-mini btn-inverse", "data-toggle"=>"modal")
                 .clearfix
                 %hr.divider3/
@@ -29,7 +28,6 @@
                 .cn2
                   %span.tx1= product.name
                   %span.tx2= product.sanitized_price
-                  %p= product.description
                   =link_to('comprar','', "data-target"=>"#myModal", "data-remote"=>new_cart_product_path(cart_product: {product_id: product.id}),"role"=>"button", "class"=>"btn btn-mini btn-inverse", "data-toggle"=>"modal")
                 .clearfix
                 %hr.divider3/

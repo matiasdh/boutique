@@ -22,6 +22,11 @@ es:
         image: 'Imágen'
         name: 'Nombre'
         description: 'Descripción'
+        offer: 'Oferta'
+        highlight: 'Destacado'
+        unit: 'Unidad'
+        created_at: 'Creado'
+        updated_at: 'Modificado'
       cart_product:
         quantity: 'Cantidad'
         price:    'Precio'
@@ -33,11 +38,15 @@ es:
         password: 'Contraseña'
         password_confirmation: 'Confirmación de contraseña'
         address: 'Dirección'
+        created_at: 'Creado'
+        updated_at: 'Modificado'
       purchase:
         total_price: "Precio total"
         user: "Usuario"
         address: "Dirección"
         confirmed: "Entregado"
+        created_at: 'Creado'
+        updated_at: 'Modificado'
   activemodel:
     models:
       message:
