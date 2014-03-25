@@ -1,0 +1,6 @@
+.clearfix
+  .pull-left
+    .span
+      = yield :header
+  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+= yield

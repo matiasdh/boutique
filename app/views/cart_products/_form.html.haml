@@ -1,0 +1,3 @@
+= simple_form_for @cart_product, :remote => true do |f|
+  = f.input :product_id, :as => :hidden
+  = f.input :quantity, required: true, collection: (1..10)

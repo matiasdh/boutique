@@ -1,0 +1,9 @@
+= simple_form_for resource_name, :url => session_path(resource_name), :remote => true,  html: {id: "sign_in_form"} do |f|
+  - flash.each do |type, v|
+    %p= v
+  = f.label :email
+  = f.input_field :email
+  = f.error :email
+  = f.label :password
+  = f.input_field :password
+  = f.error :password

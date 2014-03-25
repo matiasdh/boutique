@@ -1,0 +1,53 @@
+es:
+  activerecord:
+    models:
+      product: 
+        one: 'Producto'
+        other: 'Productos'
+      cart_product:
+        total_price: 'Precio total'
+        one: 'Producto del carrito'
+        other: 'Productos del carrito'
+      purchase:
+        one: 'Compra'
+        other: 'Compras'
+      user:
+        one: 'Usuario'
+        other: 'Usuarios'
+    attributes:
+      created_at: 'Creado'
+      updated_at: 'Modificado'
+      product:
+        price: 'Precio'
+        image: 'Imágen'
+        name: 'Nombre'
+        description: 'Descripción'
+      cart_product:
+        quantity: 'Cantidad'
+        price:    'Precio'
+        product:  'Producto'
+      user:
+        first_name: 'Nombre'
+        last_name: 'Apellido'
+        telephone: 'Teléfono'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación de contraseña'
+        address: 'Dirección'
+      purchase:
+        total_price: "Precio total"
+        user: "Usuario"
+        address: "Dirección"
+        confirmed: "Entregado"
+  activemodel:
+    models:
+      message:
+        one: 'Mensaje'
+        other: 'Mensajes'
+    attributes:
+      message:
+        name: 'Nombre'
+        email: 'Email'
+        phone: 'Télefono'
+        body: 'Mensaje'
+
+      # will translate User attribute 'login' as 'Handle'

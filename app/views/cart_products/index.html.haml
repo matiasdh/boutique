@@ -1,0 +1,35 @@
+= content_for :header do
+  %h4 Mi carrito
+
+-if @cart_products.present?
+  %table.table.table-striped#cart_prodcuts
+    %thead
+      %tr
+        %th Producto
+        %th Cantidad
+        %th Precio x unidad
+        %th Precio total
+        %th
+        %th
+    %tbody
+      - total_purchase = 0
+      - @cart_products.includes(:product).each do |cart_product|
+        %tr{id: "cart_product_#{cart_product.id}"}
+          - total_purchase += cart_product.total_price
+          %td= cart_product.product_name
+          %td= cart_product.quantity
+          %td= cart_product.price
+          %td= cart_product.total_price
+          %td
+            = link_to 'Quitar', cart_product, method: :delete, remote: true, data: { confirm: '¿Confirma que desea quitar éste articulo?'  }, class: "btn btn-warning btn-mini"
+      %tr
+        %td
+        %td
+        %td
+          %b Total:
+        %td
+          %b{id: "cart_products_total_price"}= total_purchase
+        %td
+
+- else
+  %p No has agregado ningún producto a tu carrito.

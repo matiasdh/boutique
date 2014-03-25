@@ -1,0 +1,93 @@
+.container
+  %h2.hdr4 Nuestros Productos
+  .slider5
+    #externalNav
+      - ((@products.length/10)+1).times do |v|
+        %a{href: "##{v+1}"}= v+1
+    %ul#anythingSlider5
+      - @products.each_slice(10) do |page|
+        %li
+          .slider5Set
+            .half1
+              - page.shift(5).each do |product|
+                .cn1
+                  %a{"data-rel" => "lightbox", href: "#"}
+                    =image_tag product.image.mini.url
+                .cn2
+                  %span.tx1= product.name
+                  %span.tx2= product.sanitized_price
+                  %p= product.description
+                  =link_to('comprar','', "data-target"=>"#myModal", "data-remote"=>new_cart_product_path(cart_product: {product_id: product.id}),"role"=>"button", "class"=>"btn btn-mini btn-inverse", "data-toggle"=>"modal")
+                .clearfix
+                %hr.divider3/
+              / half1
+            .half2
+              - page.each do |product|
+                .cn1
+                  %a{"data-rel" => "lightbox", href: "#"}
+                    =image_tag product.image.mini.url
+                .cn2
+                  %span.tx1= product.name
+                  %span.tx2= product.sanitized_price
+                  %p= product.description
+                  =link_to('comprar','', "data-target"=>"#myModal", "data-remote"=>new_cart_product_path(cart_product: {product_id: product.id}),"role"=>"button", "class"=>"btn btn-mini btn-inverse", "data-toggle"=>"modal")
+                .clearfix
+                %hr.divider3/
+            / half2
+            .clearfix
+    .pagesNr
+      %span.nr1
+      %span.nr2
+  .box5
+    %p
+      %span.highlight CONSULTE POR OTROS PRODUCTOS
+
+:javascript
+<!-- AnythingSlider initialization -->
+        
+        var $s = $('#anythingSlider5'), nav = $('#externalNav a'), updateNav = function (page) {
+                    nav.removeClass('cur').eq(page).addClass('cur');
+                };
+        
+        var allpages = $s.find('li').size();
+        $('.pagesNr .nr2').append('/'+allpages);
+        
+        $s.anythingSlider({
+            // If true, builds a list of anchor links to link to each panel
+            mode: "vertical",
+            autoPlay:false,
+            expand: true,
+            pauseOnHover:true,
+            hashTags:false,
+            buildNavigation:false,
+            buildStartStop:false,
+            delay:8000,
+        
+            onInitialized:function (e, slider) {
+                updateNav(slider.currentPage - 1);
+                $('.pagesNr .nr1').empty().append(slider.targetPage);
+            },
+            // Callback before slide animates
+            onSlideBegin:function (e, slider) {
+                updateNav(slider.targetPage - 1);
+                $('.pagesNr .nr1').empty().append(slider.targetPage);
+            }
+        });
+        
+        // set up external links
+        $('#externalNav a').click(function () {
+            // get slide number (ignore the #)
+            var slide = $(this).attr('href').substring(1), // get AnythingSlider data object
+                    slider = $s.data('AnythingSlider');
+            if (slide === "play") {
+                // toggle slideshow
+                slider.startStop(!slider.playing);
+                // change link text
+                $('a.play').text(slider.playing ? 'Pause' : 'Play');
+            } else {
+                // go to selected slide
+                $s.anythingSlider(slide);
+            }
+            // prevent link from changing the hash
+            return false;
+        });

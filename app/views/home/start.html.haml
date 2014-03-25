@@ -1,0 +1,118 @@
+.slider6Back
+  .container
+    .slider6
+      =image_tag "slider6-frame.png", class: "frame1"
+      .sliderContent
+        .slider-wrapper
+          #slider6Nivo.nivoSlider
+            .slider1Frame
+              .frame1=image_tag "3.jpg"
+            .slider1Frame
+              .frame2=image_tag "1.jpg"
+            .slider1Frame
+              .frame3=image_tag "2.jpg"
+  / container
+.container
+-if (@highlights.size >= 3)
+  %h2.hdr4 PROMOCIONES ESPECIALES
+  .slider7Back
+    .container
+      .slider7
+        %ul#anythingSlider7
+          -@highlights.each_slice(3) do |page|
+            %li
+              .setSlider7
+                -page.each do |v|
+                  .third
+                    .mrgThird
+                      .shadd
+                        =image_tag v.image.url
+                      %span.tx1=v.name
+                      =v.description
+                      %span.tx2=v.sanitized_price
+                      %br
+                      %br
+                      =link_to('comprar','', "data-target"=>"#myModal", "data-remote"=>new_cart_product_path(cart_product: {product_id: v.id}),"role"=>"button", "class"=>"btn btn-small btn-inverse", "data-toggle"=>"modal")
+                .clearfix
+-if (@offers.size >= 3)
+  / slider7
+  .container
+    %h3.hdr2
+      %span.lft
+      Los Recomendados del mes
+      %span.rt
+    .threeColumnGallery
+      -@offers.each do |v|
+        .third
+          .mrgThird
+            %span.tx1= v.name
+            %p=v.description
+            %span.tx2=v.sanitized_price
+            .imgBack
+              =image_tag v.image.small.url
+            %br
+            =link_to('comprar','', "data-target"=>"#myModal", "data-remote"=>new_cart_product_path(cart_product: {product_id: v.id}),"role"=>"button", "class"=>"btn btn-small btn-inverse", "data-toggle"=>"modal")
+    .clearfix
+    %br
+.clearfix
+:javascript
+  $(document).ready(function () {
+
+      // rotate text
+      $(".slider6 .ribTxt span").rotate({angle:-45});
+
+      // init curved header
+      $('.curved').arctext({radius:250, rotate:true, dir:1});
+
+
+      // slider6 init
+      $('#slider6Nivo').nivoSlider({
+          effect:'random',
+          pauseTime:8000,
+          captionEasing:'linear',
+          slices:15, // For slice animations
+          boxCols:8, // For box animations
+          boxRows:4, // For box animations
+          animSpeed:500, // Slide transition speed
+          startSlide:0, // Set starting Slide (0 index)
+          directionNav:true, // Next & Prev navigation
+          controlNav:true, // 1,2,3... navigation
+          controlNavThumbs:false, // Use thumbnails for Control Nav
+          pauseOnHover:true, // Stop animation while hovering
+          manualAdvance:false, // Force manual transitions
+          prevText:'Prev', // Prev directionNav text
+          nextText:'Next', // Next directionNav text
+          randomStart:false, // Start on a random slide
+          beforeChange:function () {
+          }, // Triggers before a slide transition
+          afterChange:function () {
+          }, // Triggers after a slide transition
+          slideshowEnd:function () {
+          }, // Triggers after all slides have been shown
+          lastSlide:function () {
+          }, // Triggers when last slide is shown
+          afterLoad:function () {
+          } // Triggers when slider has loaded
+
+      });
+      $(".lft").remove();
+      $(".rt").remove();
+      $('.nivo-controlNav').prepend("<div class='lft'></div>");
+      $('.nivo-controlNav').append("<div class='rt'></div>");
+      $('.nivo-controlNav a').wrapAll("<div class='mid'>");
+      $('.nivo-controlNav div').wrapAll("<div class='navCent'>");
+
+
+
+      //slider7 init
+      $('#anythingSlider7').anythingSlider({
+          autoPlay: false,
+          expand: true,
+          pauseOnHover: true,
+          hashTags: false,
+          buildNavigation: false,
+          buildStartStop: false,
+          delay: 8000
+      });
+
+  });

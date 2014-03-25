@@ -1,0 +1,1 @@
+$("<%= @cart_product.persisted? ? "#edit_cart_product_#{@cart_product.id}" : "#new_cart_product"%>").html("<%= escape_javascript(render 'form.html') %>");render

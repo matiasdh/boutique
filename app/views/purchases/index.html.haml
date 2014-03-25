@@ -1,0 +1,19 @@
+%h1 Listing purchases
+%table
+  %thead
+    %tr
+      %th User
+      %th Total price
+      %th
+      %th
+      %th
+  %tbody
+    - @purchases.each do |purchase|
+      %tr
+        %td= purchase.user
+        %td= purchase.total_price
+        %td= link_to 'Show', purchase
+        %td= link_to 'Edit', edit_purchase_path(purchase)
+        %td= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Purchase', new_purchase_path

@@ -1,0 +1,119 @@
+!!!
+%html
+  %head
+    %title Boutique de Carnes | Carnes de Uruguay
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    %meta{content: "Boutique de carnes es una carniceria de uruguay ubicada en la zona de Atahualpa, ofrece los mejores cortes de carnes vacunas, cerdos y los mas selectos pollos.", name: "description"}/
+    %meta{content: "carniceria, carnes, carne premium, carne vacuna, carne de cerdo, uruguay", name: "keywords"}/
+  %body
+    #header
+      .container
+        .logoContainer
+          = link_to('/') do
+            =image_tag 'titu.png'
+        .clearfix
+    #menuContainer
+      .container
+        %ul#nav.mainMenu
+          %li
+            = link_to 'Inicio', root_path
+          %li
+            = link_to 'Nosotros', nosotros_path
+          %li
+            = link_to 'Productos', products_path
+          %li
+            = link_to 'Recetas', recetas_path
+          %li
+            = link_to 'Contacto', new_message_path
+        #loginbox    
+          - if user_signed_in?
+            .login
+              #register
+                =image_tag 'carrito.png'
+              %span.txt_register
+                = "Hola, #{current_user.full_name} |"
+                %span
+                  =link_to 'Cerrar sesión', destroy_user_session_path, :method => :delete
+                %br/
+                %span#cart_total="$ #{current_user.cart_subtotal} subtotal |"
+                %span
+                  =link_to('Ver carrito','', "data-target"=>"#myModal", "data-remote"=>cart_products_path, "data-toggle"=>"modal")                
+          - else
+            .login
+              %ul
+                %li
+                  =link_to 'Registro', new_user_registration_path
+                %li
+                  =link_to('Ingresar','', "data-target"=>"#myModal", "data-remote"=>new_user_session_path,"role"=>"button", "data-toggle"=>"modal")
+        .clearfix
+    -if flash.present?
+      .container
+        %br
+        - flash.each do |key, value|
+          .flash{class: 'alert'}= value
+    = yield
+
+      
+    #footer
+      .container
+        .top
+        .mid
+          .col1
+            %h4
+              %span.lft
+              MAPA DEL SITIO
+              %span.rt
+            %span.day= link_to 'Inicio', root_path
+            %br/
+            %span.day= link_to 'Nosotros', nosotros_path
+            %br/
+            %span.day= link_to 'Productos', products_path
+            %br/
+            %span.day= link_to 'Recetas', recetas_path
+            %br/
+            %span.day= link_to 'Contacto', new_message_path
+            %br/
+          .col2
+            %h4
+              %span.lft
+              CONTACTO
+              %span.rt
+            .brdr
+              %span.hour Mail : info@boutiquedecarnes.com.uy
+              %br/
+              %span.hour Tel: 2 2037550
+              %br/
+              %span.hour Dirección: Millán 3006 esq. Bvr.Artigas, Atahualpa.
+              %br/
+              %span.hour Montevideo | Uruguay
+              %br/
+              .clearfix
+          .col3
+            .lftMrg
+              %h4
+                %span.lft>
+                HORARIOS
+                %span.rt
+              %span.hour Lunes a Sábados:
+              %br/
+              %span.hour 8:30hs a 20:30hs
+              %br/
+          .clearfix
+        .btm
+    / footer
+    / Modal
+    #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+      .modal-body
+      .modal-footer
+        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Volver
+        %button.btn.btn-success.ok-modal-button Confirmar
+    :javascript
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-38567653-4', 'boutiquedecarnes.com.uy');
+          ga('send', 'pageview');

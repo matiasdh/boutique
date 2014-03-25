@@ -1,0 +1,22 @@
+    Se ha realizado una nueva compra desde el sitio web
+                    de Boutique de Carnes
+============================================================
+
+Datos del Cliente:
+------------------------------------------------------------
+
+Nombre:		<%= @message.user.full_name %>
+E-mail:		<%= @message.user.email %>
+Télefono:	<%= @message.user.telephone %>
+
+Detalles de la compra
+------------------------------------------------------------
+
+Direccción de entrega: <%= @message.address %>
+Total de la compra: $ <%= @message.total_price %>
+
+Productos:
+<% @message.cart_products.includes(:product).each do |v| %>
+- <%= v.product_name %>
+  - Cantidad: <%= v.quantity %>
+<% end %>

@@ -1,0 +1,50 @@
+#mainContent
+  .container
+    .column1.pull-left
+      %h2.hdr1 Contáctese con Nosotros
+      %h3.hdr2
+        %span.lft>
+        Formulario de Contacto
+        %span.rt
+      .box7
+        .cn1.contact
+          = render 'form'
+        .cn2
+          %p
+            %strong Mapa de Ubicación:
+            %br/
+          %iframe{height: "362", src: "https://mapsengine.google.com/map/embed?mid=zcxbhn54q0xU.kzYdjtQ_Y_jI", width: "325"}
+        .clearfix
+    .column2.pull-right
+      .box9
+        .top
+        .mid
+        .btm
+      / box9
+      .box1
+        .top
+        .mid
+          %h4.curved Datos de Contacto
+          %span.subTitle Haga su pedido!
+          .mCont
+            %p.centering
+              Teléfono: 2 203 75 50
+              %br/
+              Mail: info@boutiquedecarnes.com.uy
+              %br/
+              %br/
+              %strong Dirección:
+              %br/
+              Millán 3006 esq. Bvr.Artigas.
+              %br/
+              Barrio Atahualpa.
+              %br/
+              Montevideo, Uruguay.
+          / mCont
+        .btm
+      / box1
+      .box2
+        Carnes de Uruguay
+      %h4.hdr3 No te pierdas nuestras Promociones Mensuales
+      .clearfix
+    .clearfix

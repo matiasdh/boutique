@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: cart_products
+#
+#  id         :integer          not null, primary key
+#  owner_id   :integer
+#  owner_type :string(255)
+#  product_id :integer
+#  price      :float
+#  quantity   :integer          default(1)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 
+  product_id: 
+  price: 1.5
+  quantity: 1
+
+two:
+  owner_id: 
+  product_id: 
+  price: 1.5
+  quantity: 1

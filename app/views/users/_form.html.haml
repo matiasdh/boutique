@@ -1,0 +1,11 @@
+= simple_form_for @user do |f|
+  = f.label :email
+  = f.input_field :email
+  = f.error :email
+  = f.label :password
+  = f.input_field :password
+  = f.error :password
+  = f.label :password_confirmation
+  = f.input_field :password_confirmation
+  = f.error :password_confirmation
+  = f.button :submit

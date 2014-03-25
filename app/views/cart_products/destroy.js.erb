@@ -1,0 +1,4 @@
+$("#cart_product_<%= @cart_product.id %>").remove();
+$('#cart_products_total_price').text($('#cart_products_total_price').text() - <%= @cart_product.total_price %>);
+$("#cart_total").text("$" + $('#cart_products_total_price').text() + " subtotal |");
+render

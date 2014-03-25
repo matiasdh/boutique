@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: purchases
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  total_price :float
+#  address     :string(255)
+#  confirmed   :boolean
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  total_price: 1.5
+
+two:
+  user_id: 
+  total_price: 1.5

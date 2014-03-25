@@ -1,0 +1,33 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+
+ */
+ @import "nivo-slider";
+ @import "anythingslider";
+ @import "lightbox";
+ @import "bootstrap.min";
+ @import "bootstrap-responsive.min";
+ @import "style";
+
+ .day {
+   a {
+     color: white;
+   }
+ }
+
+.modal-product-image {
+	margin: 10px;
+	margin-right: 30px;
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    0px 2px 5px 0px rgba(50, 50, 50, 1);
+	box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 1);
+}

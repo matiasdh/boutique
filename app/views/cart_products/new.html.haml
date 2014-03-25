@@ -1,0 +1,14 @@
+= content_for :header do
+  %h4 Agregar a mi carrito
+%table
+  %tr
+    %th{rowspan: "3"}
+      .modal-product-image
+        =image_tag @cart_product.product.image.url
+    %td
+      %b= @cart_product.product_name
+  %tr
+    %td= @cart_product.product.description + ' hola'
+  %tr
+    %td
+      = render 'form'

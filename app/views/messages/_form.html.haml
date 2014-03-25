@@ -1,0 +1,6 @@
+= simple_form_for @message do |f|
+  = f.input :name, as: :string
+  = f.input :email
+  = f.input :phone
+  = f.input :body, as: :text
+  = f.button :submit, 'Enviar'
